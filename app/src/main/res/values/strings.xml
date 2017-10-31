@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Cantineiros</string>
+    <string name="texto_usuario">Usuário</string>
+    <string name="texto_senha">Senha</string>
+    <string name="esqueceu_senha">Esqueceu a senha?</string>
+    <string name="title_activity__administrador">Activity_Administrador</string>
+    <string name="titulo_activity_administrador">Gerenciamento de produtos e preços</string>
+</resources>
