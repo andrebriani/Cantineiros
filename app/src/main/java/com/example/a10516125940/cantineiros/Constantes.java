@@ -1,6 +1,7 @@
 package com.example.a10516125940.cantineiros;
 
-import com.example.a10516125940.cantineiros.View.Produto;
+import com.example.a10516125940.cantineiros.Model.Produto;
+import com.example.a10516125940.cantineiros.Model.Usuario;
 
 import java.util.ArrayList;
 
@@ -10,5 +11,6 @@ import java.util.ArrayList;
 
 public class Constantes {
 
+    public static Usuario u = new Usuario();
     public static ArrayList<Produto> listaProdutos = new ArrayList<>() ;
 }

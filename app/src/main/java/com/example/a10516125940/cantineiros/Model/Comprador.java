@@ -1,4 +1,4 @@
-package com.example.a10516125940.cantineiros.View;
+package com.example.a10516125940.cantineiros.Model;
 
 import java.util.ArrayList;
 
@@ -28,6 +28,6 @@ public class Comprador extends Usuario {
     }
 
     public boolean removePedido(Pedido p){
-        listaPedidos.remove(p);
+        return listaPedidos.remove(p);
     }
 }

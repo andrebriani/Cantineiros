@@ -1,4 +1,4 @@
-package com.example.a10516125940.cantineiros;
+package com.example.a10516125940.cantineiros.Controller;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -12,7 +12,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.a10516125940.cantineiros.View.Produto;
+import com.example.a10516125940.cantineiros.Model.Produto;
+import com.example.a10516125940.cantineiros.R;
 
 import java.util.ArrayList;
 
@@ -118,17 +119,26 @@ public class Activity_Administrador extends AppCompatActivity {
     }
 
     private void inserirElementosListaInterface(ArrayList<Produto> lista){
-        ArrayList<String> listaDado = new ArrayList<>(lista.size());
+        if(lista.isEmpty()){
+            ArrayAdapter<String> adaptador = new ArrayAdapter<String>(
+                    getApplicationContext(), android.R.layout.simple_list_item_1,
+                    android.R.id.text1, new String[]{"Vazio"}
+            );
 
-        for(Produto p: lista){
-            listaDado.add(p.toString());
+            listViewProdutos.setAdapter(adaptador);
+        }else{
+            ArrayList<String> listaDado = new ArrayList<>(lista.size());
+
+            for(Produto p: lista){
+                listaDado.add(p.getNome() + " R$ " + p.getPreco());
+            }
+
+            ArrayAdapter<String> adaptador = new ArrayAdapter<String>(
+                    getApplicationContext(), android.R.layout.simple_list_item_1,
+                    android.R.id.text1, listaDado
+            );
+
+            listViewProdutos.setAdapter(adaptador);
         }
-
-        ArrayAdapter<String> adaptador = new ArrayAdapter<String>(
-                getApplicationContext(), android.R.layout.simple_list_item_1,
-                android.R.id.text1, listaDado
-        );
-
-        listViewProdutos.setAdapter(adaptador);
     }
 }

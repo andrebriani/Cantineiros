@@ -1,4 +1,4 @@
-package com.example.a10516125940.cantineiros.View;
+package com.example.a10516125940.cantineiros.Model;
 
 import java.util.ArrayList;
 
@@ -9,15 +9,18 @@ import java.util.ArrayList;
 public class Pedido {
 
     private String data;
+    private boolean entregue;
     private ArrayList<Produto> produtos = new ArrayList<>();
 
     public Pedido(String data) {
         this.data = data;
+        entregue = false;
     }
 
     public Pedido(String data, ArrayList<Produto> produtos) {
         this.data = data;
         this.produtos = produtos;
+        entregue = false;
     }
 
     public String getData() {
@@ -35,4 +38,13 @@ public class Pedido {
     public void setProdutos(ArrayList<Produto> produtos) {
         this.produtos = produtos;
     }
+
+    public boolean isEntregue() {
+        return entregue;
+    }
+
+    public void setEntregue(boolean entregue) {
+        this.entregue = entregue;
+    }
+
 }

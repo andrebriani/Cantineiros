@@ -1,4 +1,4 @@
-package com.example.a10516125940.cantineiros;
+package com.example.a10516125940.cantineiros.Controller;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.a10516125940.cantineiros.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         botaoEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, Activity_Administrador.class));
+                startActivity(new Intent(MainActivity.this, Activity_Comprador_Principal.class));
             }
         });
 

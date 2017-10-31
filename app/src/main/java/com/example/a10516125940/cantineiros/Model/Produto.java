@@ -1,10 +1,10 @@
-package com.example.a10516125940.cantineiros.View;
+package com.example.a10516125940.cantineiros.Model;
 
 /**
  * Created by 10516125940 on 31/10/2017.
  */
 
-class Produto {
+public class Produto {
 
     private String nome;
     private double preco;
@@ -30,10 +30,5 @@ class Produto {
 
     public void setPreco(double preco) {
         this.preco = preco;
-    }
-
-    @Override
-    public String toString() {
-        return getNome() + " R$ " + getPreco();
     }
 }
