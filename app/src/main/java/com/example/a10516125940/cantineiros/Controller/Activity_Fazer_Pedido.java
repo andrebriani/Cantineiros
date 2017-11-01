@@ -9,12 +9,15 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.a10516125940.cantineiros.Model.Pedido;
 import com.example.a10516125940.cantineiros.Model.Produto;
 import com.example.a10516125940.cantineiros.R;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Activity_Fazer_Pedido extends AppCompatActivity {
 
@@ -37,13 +40,14 @@ public class Activity_Fazer_Pedido extends AppCompatActivity {
         setContentView(R.layout.activity__fazer__pedido);
 
         listaProdutoDoCliente = new ArrayList<>();
+        listaProdutos = new ArrayList<>();
+
+        botaoFinalizar = findViewById(R.id.botaoFinalizar);
+        listViewPedido = findViewById(R.id.listViewPedido);
+        listViewProdutos = findViewById(R.id.listViewProdutos);
 
         inserirProdutoNaListaViewProdutos();
         inserirProdutosNaListaViewPedido();
-
-        botaoFinalizar = findViewById(R.id.botaoPedir);
-        listViewPedido = findViewById(R.id.listViewPedido);
-        listViewProdutos = findViewById(R.id.listViewProdutos);
 
         dialogoExcluir = new AlertDialog.Builder(Activity_Fazer_Pedido.this);
         dialogoExcluir.setTitle("Excluir?");
@@ -67,8 +71,8 @@ public class Activity_Fazer_Pedido extends AppCompatActivity {
         });
 
         dialogoAdicionar = new AlertDialog.Builder(Activity_Fazer_Pedido.this);
-        dialogoAdicionar.setTitle("Excluir?");
-        dialogoAdicionar.setMessage("Realmente quer excluir esse produto do seu pedido?");
+        dialogoAdicionar.setTitle("Adicionar?");
+        dialogoAdicionar.setMessage("Realmente quer adicionar esse produto do seu pedido?");
         dialogoAdicionar.setCancelable(true);
         dialogoAdicionar.setIcon(android.R.drawable.ic_delete);
 
@@ -92,7 +96,7 @@ public class Activity_Fazer_Pedido extends AppCompatActivity {
         dialogoAdicionar.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                listaProdutoDoCliente.add( listaProdutos.get(indiceProdutoNoPedidoEscolhido) );
+                inserirProdutosNoPedido( listaProdutos.get(indiceProdutoEscolhido) );
                 inserirProdutosNaListaViewPedido();
             }
         });
@@ -110,18 +114,33 @@ public class Activity_Fazer_Pedido extends AppCompatActivity {
         botaoFinalizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                realizarPedido();
             }
         });
 
     }
 
-    private void realizarPedido(Pedido p){
+    private void realizarPedido(){
+        if(listaProdutoDoCliente.isEmpty()){
+            Toast.makeText(Activity_Fazer_Pedido.this, "Selecione pelo menos" +
+                    " um produto para poder fazer a reserva", Toast.LENGTH_LONG).show();
+        }else{
+            Date d = new Date();
+            String data = java.text.DateFormat.getDateInstance(DateFormat.MEDIUM).format(d);
+            Pedido p = new Pedido(data, listaProdutoDoCliente);
 
+
+            ControllerCentral.realizarPedido(p);
+
+            Toast.makeText(Activity_Fazer_Pedido.this, "Pronto", Toast.LENGTH_LONG).show();
+
+            listaProdutoDoCliente = new ArrayList<>();
+            inserirProdutosNaListaViewPedido();
+        }
     }
 
     private void inserirProdutosNoPedido(Produto p){
-
+            listaProdutoDoCliente.add(p);
     }
 
     private void inserirProdutosNaListaViewPedido() {
@@ -133,7 +152,7 @@ public class Activity_Fazer_Pedido extends AppCompatActivity {
 
             listViewPedido.setAdapter(adaptador);
         } else {
-            ArrayList<String> listaDado = new ArrayList<>(listaProdutos.size());
+            ArrayList<String> listaDado = new ArrayList<>(listaProdutoDoCliente.size());
 
             for (Produto p : listaProdutoDoCliente) {
                 listaDado.add(p.getNome() + " R$ " + p.getPreco());
@@ -144,11 +163,18 @@ public class Activity_Fazer_Pedido extends AppCompatActivity {
                     android.R.id.text1, listaDado
             );
 
-            listViewProdutos.setAdapter(adaptador);
+            listViewPedido.setAdapter(adaptador);
         }
     }
 
     private void inserirProdutoNaListaViewProdutos() {
+        listaProdutos.add(new Produto("Pão", 10));
+        listaProdutos.add(new Produto("Bolo", 20));
+        listaProdutos.add(new Produto("Sanduiche", 30));
+        listaProdutos.add(new Produto("Suco", 40));
+        listaProdutos.add(new Produto("Bolacha", 50));
+        listaProdutos.add(new Produto("Biscoito", 60));
+
         if (listaProdutos.isEmpty()) {
             ArrayAdapter<String> adaptador = new ArrayAdapter<String>(
                     getApplicationContext(), android.R.layout.simple_list_item_1,

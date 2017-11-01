@@ -10,7 +10,7 @@ public class Usuario {
 
     private String nome;
     private String senha;
-    ArrayList<Pedido> listaPedidos = new ArrayList<>();
+    private ArrayList<Pedido> listaPedidos = new ArrayList<>();
 
 
     public Usuario() {
@@ -34,7 +34,7 @@ public class Usuario {
     }
 
     public void setSenha(String senha) {
-        this.senha = senha;
+           this.senha = senha;
     }
 
     public ArrayList<Pedido> getListaPedidos() {

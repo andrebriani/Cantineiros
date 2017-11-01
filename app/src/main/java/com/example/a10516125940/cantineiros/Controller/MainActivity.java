@@ -26,11 +26,18 @@ public class MainActivity extends AppCompatActivity {
         botaoEntrar = findViewById(R.id.botaoEntrar);
         textView_Esqueceu_senha = findViewById(R.id.textView_Esqueceu_Senha);
         campoNome = findViewById(R.id.editText_Usuario);
+        campoSenha = findViewById(R.id.editText_senha);
 
 
         botaoEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(ControllerCentral.u.getNome().equalsIgnoreCase(campoNome.getText().toString())
+                        && ControllerCentral.u.getSenha().equalsIgnoreCase(campoSenha.getText().toString()) ){
+
+                }else{
+
+                }
                 startActivity(new Intent(MainActivity.this, Activity_Comprador_Principal.class));
             }
         });

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class Pedido {
 
     private String data;
+    private String nomeCliente;
     private boolean entregue;
     private ArrayList<Produto> produtos = new ArrayList<>();
 
@@ -47,4 +48,19 @@ public class Pedido {
         this.entregue = entregue;
     }
 
+    @Override
+    public String toString() {
+        String s = "";
+
+        s = "Pedido{" +
+                "Data='" + data + '\'' +
+                ", nomeCliente='" + nomeCliente + '\'' +
+                ", entregue=" + entregue + "\n";
+
+        for(Produto p: produtos){
+            s += p.toString() + "\n";
+        }
+
+        return s;
+    }
 }

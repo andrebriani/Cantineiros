@@ -26,7 +26,7 @@ public class Activity_Comprador_Principal extends AppCompatActivity {
         botaoFazerPedido = findViewById(R.id.botaoPedir);
         listViewPedidos = findViewById(R.id.listViewPedidos);
 
-        inserirElementosListaInterface(com.example.a10516125940.cantineiros.Constantes.u.getListaPedidos());
+        inserirElementosListaInterface(ControllerCentral.u.getListaPedidos());
 
         botaoFazerPedido.setOnClickListener(new View.OnClickListener() {
             @Override
