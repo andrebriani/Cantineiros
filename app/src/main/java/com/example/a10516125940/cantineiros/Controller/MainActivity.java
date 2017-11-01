@@ -34,11 +34,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(ControllerCentral.u.getNome().equalsIgnoreCase(campoNome.getText().toString())
                         && ControllerCentral.u.getSenha().equalsIgnoreCase(campoSenha.getText().toString()) ){
-
+                    startActivity(new Intent(MainActivity.this, Activity_Comprador_Principal.class));
                 }else{
-
+                    Toast.makeText(MainActivity.this, "Login incorreto", Toast.LENGTH_LONG).show();
                 }
-                startActivity(new Intent(MainActivity.this, Activity_Comprador_Principal.class));
+
             }
         });
 

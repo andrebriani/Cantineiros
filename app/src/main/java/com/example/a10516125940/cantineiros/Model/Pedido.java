@@ -24,6 +24,15 @@ public class Pedido {
         entregue = false;
     }
 
+    public double calcularTotal(){
+        double valor = 0;
+        for(Produto p: produtos){
+            valor += p.getPreco();
+        }
+        valor = Double.parseDouble(String.format("%.2f", valor).replace(",","."));
+        return valor;
+    }
+
     public String getData() {
         return data;
     }
@@ -48,19 +57,31 @@ public class Pedido {
         this.entregue = entregue;
     }
 
-    @Override
-    public String toString() {
+    public String mostrarParaCliente(){
         String s = "";
 
-        s = "Pedido{" +
-                "Data='" + data + '\'' +
-                ", nomeCliente='" + nomeCliente + '\'' +
-                ", entregue=" + entregue + "\n";
+        s += "Data: " + data + "\n";
+        s += "Entregue: ";
+        if(entregue){
+            s += "sim";
+        }else{
+            s += "não";
+        }
+        s += "\nProdutos:\n";
 
         for(Produto p: produtos){
-            s += p.toString() + "\n";
+            s += "   " + p.toString();
         }
 
+        s += "Valor Total: R$ " + calcularTotal();
+        return s;
+    }
+
+    public String mostrarParaAdministrador(){
+        String s = "";
+
+        s += "Nome Cliente: " + nomeCliente + "\n";
+        s += mostrarParaCliente();
         return s;
     }
 }

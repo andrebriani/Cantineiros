@@ -74,12 +74,19 @@
             android:id="@+id/botaoFinalizar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/listViewProdutos"
+            android:layout_alignRight="@+id/listViewProdutos"
             android:layout_below="@+id/listViewProdutos"
-            android:layout_marginLeft="11dp"
-            android:layout_marginStart="11dp"
-            android:layout_marginTop="21dp"
-            android:layout_toEndOf="@+id/textView12"
-            android:layout_toRightOf="@+id/textView12"
+            android:layout_marginTop="22dp"
             android:text="Finalizar" />
+
+        <Button
+            android:id="@+id/botaoVoltar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/listViewProdutos"
+            android:layout_alignStart="@+id/listViewProdutos"
+            android:layout_alignTop="@+id/botaoFinalizar"
+            android:text="Voltar" />
     </RelativeLayout>
 </ScrollView>

@@ -15,22 +15,22 @@ import java.util.ArrayList;
 public class ControllerCentral {
 
     public static Usuario u = new Usuario("Tiago", "123");
-    public static ArrayList<Produto> listaProdutos = new ArrayList<>();
 
     public static ArrayList<Pedido> listaPedidos = new ArrayList<>();
 
     public static boolean realizarPedido(Pedido pe){
-        listaPedidos.add(pe);
-        Log.i("Pedido: ", pe.toString());
+        u.getListaPedidos().add(pe);
+        Log.i("Pedido: ", pe.mostrarParaAdministrador());
+
         return true;
     }
 
     public static boolean removerPedido(Pedido pe){
-        return listaPedidos.remove(pe);
+        return u.getListaPedidos().remove(pe);
     }
 
     public static boolean alterarStatusPedido(Pedido p, boolean status){
-        for(Pedido pe: listaPedidos){
+        for(Pedido pe: u.getListaPedidos()){
             if(pe.equals(p)){
                 pe.setEntregue(status);
                 return true;

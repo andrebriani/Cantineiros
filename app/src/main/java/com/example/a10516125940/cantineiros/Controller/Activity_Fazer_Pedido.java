@@ -1,6 +1,7 @@
 package com.example.a10516125940.cantineiros.Controller;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import com.example.a10516125940.cantineiros.Model.Produto;
 import com.example.a10516125940.cantineiros.R;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -24,6 +26,7 @@ public class Activity_Fazer_Pedido extends AppCompatActivity {
     private ListView listViewPedido;
     private ListView listViewProdutos;
     private Button botaoFinalizar;
+    private Button botaoVoltar;
 
     private AlertDialog.Builder dialogoExcluir;
     private AlertDialog.Builder dialogoAdicionar;
@@ -45,6 +48,7 @@ public class Activity_Fazer_Pedido extends AppCompatActivity {
         botaoFinalizar = findViewById(R.id.botaoFinalizar);
         listViewPedido = findViewById(R.id.listViewPedido);
         listViewProdutos = findViewById(R.id.listViewProdutos);
+        botaoVoltar = findViewById(R.id.botaoVoltar);
 
         inserirProdutoNaListaViewProdutos();
         inserirProdutosNaListaViewPedido();
@@ -118,6 +122,13 @@ public class Activity_Fazer_Pedido extends AppCompatActivity {
             }
         });
 
+        botaoVoltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Activity_Fazer_Pedido.this, Activity_Comprador_Principal.class));
+            }
+        });
+
     }
 
     private void realizarPedido(){
@@ -125,8 +136,7 @@ public class Activity_Fazer_Pedido extends AppCompatActivity {
             Toast.makeText(Activity_Fazer_Pedido.this, "Selecione pelo menos" +
                     " um produto para poder fazer a reserva", Toast.LENGTH_LONG).show();
         }else{
-            Date d = new Date();
-            String data = java.text.DateFormat.getDateInstance(DateFormat.MEDIUM).format(d);
+            String data = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").format(new Date());
             Pedido p = new Pedido(data, listaProdutoDoCliente);
 
 
