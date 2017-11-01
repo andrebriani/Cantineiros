@@ -42,7 +42,7 @@ public class Activity_Administrador extends AppCompatActivity {
 
         adicionarValoresTeste();
 
-        inserirElementosListaInterface(listaProdutos);
+        inserirElementosListaInterface();
 
         dialogo = new AlertDialog.Builder(Activity_Administrador.this);
         dialogo.setTitle("Excluir?");
@@ -90,7 +90,7 @@ public class Activity_Administrador extends AppCompatActivity {
 
                     inserirProduto(p);
 
-                    inserirElementosListaInterface(listaProdutos);
+                    inserirElementosListaInterface();
 
                     campoNomeProduto.setText("");
                     campoPrecoProduto.setText("");
@@ -110,16 +110,18 @@ public class Activity_Administrador extends AppCompatActivity {
 
     private void inserirProduto(Produto p){
         listaProdutos.add(p);
-        inserirElementosListaInterface(listaProdutos);
+        inserirElementosListaInterface();
     }
 
     private void removerProduto(Produto p){
         listaProdutos.remove(p);
-        inserirElementosListaInterface(listaProdutos);
+        inserirElementosListaInterface();
     }
 
-    private void inserirElementosListaInterface(ArrayList<Produto> lista){
-        if(lista.isEmpty()){
+    private void inserirElementosListaInterface(){
+        adicionarValoresTeste();
+
+        if(listaProdutos.isEmpty()){
             ArrayAdapter<String> adaptador = new ArrayAdapter<String>(
                     getApplicationContext(), android.R.layout.simple_list_item_1,
                     android.R.id.text1, new String[]{"Vazio"}
@@ -127,9 +129,9 @@ public class Activity_Administrador extends AppCompatActivity {
 
             listViewProdutos.setAdapter(adaptador);
         }else{
-            ArrayList<String> listaDado = new ArrayList<>(lista.size());
+            ArrayList<String> listaDado = new ArrayList<>(listaProdutos.size());
 
-            for(Produto p: lista){
+            for(Produto p: listaProdutos){
                 listaDado.add(p.getNome() + " R$ " + p.getPreco());
             }
 
