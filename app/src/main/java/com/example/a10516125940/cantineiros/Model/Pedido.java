@@ -10,6 +10,7 @@ public class Pedido {
 
     private String data;
     private String nomeCliente;
+    private boolean feito;
     private boolean entregue;
     private ArrayList<Produto> produtos = new ArrayList<>();
 
@@ -57,6 +58,22 @@ public class Pedido {
         this.entregue = entregue;
     }
 
+    public String getNomeCliente() {
+        return nomeCliente;
+    }
+
+    public void setNomeCliente(String nomeCliente) {
+        this.nomeCliente = nomeCliente;
+    }
+
+    public boolean isFeito() {
+        return feito;
+    }
+
+    public void setFeito(boolean feito) {
+        this.feito = feito;
+    }
+
     public String mostrarParaCliente(){
         String s = "";
 
@@ -78,10 +95,6 @@ public class Pedido {
     }
 
     public String mostrarParaAdministrador(){
-        String s = "";
-
-        s += "Nome Cliente: " + nomeCliente + "\n";
-        s += mostrarParaCliente();
-        return s;
+        return "Nome Cliente: " + nomeCliente + "\n" + mostrarParaCliente();
     }
 }

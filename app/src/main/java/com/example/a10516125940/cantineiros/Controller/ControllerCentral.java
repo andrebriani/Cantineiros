@@ -20,19 +20,30 @@ public class ControllerCentral {
 
     public static boolean realizarPedido(Pedido pe){
         u.getListaPedidos().add(pe);
+        listaPedidos.add(pe);
         Log.i("Pedido: ", pe.mostrarParaAdministrador());
 
         return true;
     }
 
     public static boolean removerPedido(Pedido pe){
-        return u.getListaPedidos().remove(pe);
+        return u.getListaPedidos().remove(pe) && listaPedidos.remove(pe);
     }
 
-    public static boolean alterarStatusPedido(Pedido p, boolean status){
+    public static boolean alterarStatusEntrgue(Pedido p, boolean entregue){
         for(Pedido pe: u.getListaPedidos()){
             if(pe.equals(p)){
-                pe.setEntregue(status);
+                pe.setEntregue(entregue);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean alterarStatusFeito(Pedido p, boolean feito){
+        for(Pedido pe: u.getListaPedidos()){
+            if(pe.equals(p)){
+                pe.setFeito(feito);
                 return true;
             }
         }
