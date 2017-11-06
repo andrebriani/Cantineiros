@@ -15,12 +15,12 @@ public class Pedido {
     private ArrayList<Produto> produtos = new ArrayList<>();
 
     public Pedido(String data) {
-        this.data = data;
+        setData(data);
         entregue = false;
     }
 
     public Pedido(String data, ArrayList<Produto> produtos) {
-        this.data = data;
+        setData(data);
         this.produtos = produtos;
         entregue = false;
     }
@@ -39,7 +39,10 @@ public class Pedido {
     }
 
     public void setData(String data) {
-        this.data = data;
+        String[] info = data.split(" ");
+        info[0] = info[0].replaceAll("/", ":");
+        info[1] = info[1].replaceAll(":", ":");
+        this.data = info[0] + " " + info[1];
     }
 
     public ArrayList<Produto> getProdutos() {

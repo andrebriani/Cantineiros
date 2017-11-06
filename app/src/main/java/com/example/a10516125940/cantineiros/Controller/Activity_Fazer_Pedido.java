@@ -136,7 +136,7 @@ public class Activity_Fazer_Pedido extends AppCompatActivity {
             Toast.makeText(Activity_Fazer_Pedido.this, "Selecione pelo menos" +
                     " um produto para poder fazer a reserva", Toast.LENGTH_LONG).show();
         }else{
-            String data = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").format(new Date());
+            String data = new SimpleDateFormat("dd:MM:yyyy hh:mm:ss").format(new Date());
             Pedido p = new Pedido(data, listaProdutoDoCliente);
 
 

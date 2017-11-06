@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         fba = FirebaseAuth.getInstance();
 
-        fba.signOut();
+        //fba.signOut();
 
         if(fba.getCurrentUser() != null){
             startActivity(new Intent(MainActivity.this, Activity_Comprador_Principal.class));
