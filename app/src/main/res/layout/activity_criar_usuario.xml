@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.a10516125940.cantineiros.Controller.CriarUsuario">
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="27dp"
+        android:text="Cadastrar Usuário"
+        android:textSize="@dimen/tamanho_titulo"
+        tools:layout_editor_absoluteX="140dp"
+        tools:layout_editor_absoluteY="36dp" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView14"
+        android:layout_alignStart="@+id/textView14"
+        android:layout_below="@+id/textView14"
+        android:layout_marginTop="16dp"
+        android:text="Usuário"
+        android:textSize="@dimen/fab_margin" />
+
+    <EditText
+        android:id="@+id/editTextUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView15"
+        android:layout_alignStart="@+id/textView15"
+        android:layout_below="@+id/textView15"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editTextUsuario"
+        android:layout_alignStart="@+id/editTextUsuario"
+        android:layout_below="@+id/editTextUsuario"
+        android:layout_marginTop="25dp"
+        android:text="Senha" />
+
+    <EditText
+        android:id="@+id/editTextSenha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/editTextUsuario"
+        android:layout_alignRight="@+id/editTextUsuario"
+        android:layout_below="@+id/textView16"
+        android:layout_marginTop="33dp"
+        android:ems="10"
+        android:inputType="textPassword" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editTextSenha"
+        android:layout_alignStart="@+id/editTextSenha"
+        android:layout_below="@+id/editTextSenha"
+        android:layout_marginTop="32dp"
+        android:text="Senha novamente" />
+
+    <EditText
+        android:id="@+id/editTextSenhaNovamente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/editTextSenha"
+        android:layout_alignRight="@+id/editTextSenha"
+        android:layout_below="@+id/textView17"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/botaoCadastrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextSenhaNovamente"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:text="Cadastrar" />
+</RelativeLayout>

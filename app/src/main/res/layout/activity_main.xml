@@ -41,9 +41,9 @@
         android:id="@+id/botaoEntrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView_Esqueceu_Senha"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"
+        android:layout_marginBottom="48dp"
         android:text="Entrar" />
 
     <TextView
@@ -77,4 +77,13 @@
         android:layout_marginTop="26dp"
         android:ems="10"
         android:inputType="textPassword" />
+
+    <TextView
+        android:id="@+id/textViewCriarUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView_Esqueceu_Senha"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:text="Criar novo Usuário" />
 </RelativeLayout>

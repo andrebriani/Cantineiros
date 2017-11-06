@@ -20,7 +20,8 @@
         <activity android:name=".Controller.Activity_Comprador_Principal" />
         <activity android:name=".Controller.Activity_Fazer_Pedido" />
         <activity android:name=".Controller.Gerenciamento_Pedidos" />
-        <activity android:name=".Controller.ControllerAdministrador"></activity>
+        <activity android:name=".Controller.ControllerAdministrador" />
+        <activity android:name=".Controller.CriarUsuario"></activity>
     </application>
 
 </manifest>

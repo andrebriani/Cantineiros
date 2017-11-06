@@ -5,6 +5,7 @@ import android.util.Log;
 import com.example.a10516125940.cantineiros.Model.Pedido;
 import com.example.a10516125940.cantineiros.Model.Produto;
 import com.example.a10516125940.cantineiros.Model.Usuario;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
