@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "276906550380",
+    "firebase_url": "https://cantineiros-f9dd8.firebaseio.com",
+    "project_id": "cantineiros-f9dd8",
+    "storage_bucket": "cantineiros-f9dd8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:276906550380:android:453ee30563319f2f",
+        "android_client_info": {
+          "package_name": "com.example.a10516125940.cantineiros"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "276906550380-7quoe5j2e2qqi4ll4okstvo7a54ql5da.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.a10516125940.cantineiros",
+            "certificate_hash": "f590586eeaa9ecf5077a226b455435ccb42d68da"
+          }
+        },
+        {
+          "client_id": "276906550380-oufjc3tm2ejmcbrjl6ig97bk81hn05le.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXAVn7y9I3AqcrWxTKsYnK9JVeHMjzGyo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "276906550380-oufjc3tm2ejmcbrjl6ig97bk81hn05le.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

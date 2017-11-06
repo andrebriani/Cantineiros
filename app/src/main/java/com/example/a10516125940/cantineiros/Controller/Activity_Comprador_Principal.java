@@ -13,12 +13,14 @@ import android.widget.ListView;
 
 import com.example.a10516125940.cantineiros.Model.Pedido;
 import com.example.a10516125940.cantineiros.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
 public class Activity_Comprador_Principal extends AppCompatActivity {
 
     private Button botaoFazerPedido;
+    private Button botaoLogout;
     private ListView listViewPedidos;
 
     private AlertDialog.Builder dialogooCancelar;
@@ -31,6 +33,7 @@ public class Activity_Comprador_Principal extends AppCompatActivity {
         setContentView(R.layout.activity__comprador_principal);
 
         botaoFazerPedido = findViewById(R.id.botaoPedir);
+        botaoLogout = findViewById(R.id.botaoLogout);
         listViewPedidos = findViewById(R.id.listViewPedidos);
 
         inserirElementosListaInterface();
@@ -70,6 +73,14 @@ public class Activity_Comprador_Principal extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Activity_Comprador_Principal.this, Activity_Fazer_Pedido.class));
+            }
+        });
+
+        botaoLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(Activity_Comprador_Principal.this, MainActivity.class));
             }
         });
     }

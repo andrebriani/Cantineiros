@@ -24,9 +24,12 @@
         android:id="@+id/botaoPedir"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/listViewPedidos"
+        android:layout_alignStart="@+id/listViewPedidos"
         android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="26dp"
         android:text="Fazer pedido" />
 
     <TextView
@@ -46,6 +49,17 @@
         android:layout_below="@+id/textView7"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp" />
+
+    <Button
+        android:id="@+id/botaoLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView7"
+        android:layout_alignEnd="@+id/listViewPedidos"
+        android:layout_alignRight="@+id/listViewPedidos"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:text="Logout" />
 
 </RelativeLayout>
 
